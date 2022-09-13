@@ -1,3 +1,4 @@
+console.clear();
 import "dotenv/config";
 import bot from "./src/DJBot";
 new bot().start();
