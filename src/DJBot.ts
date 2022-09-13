@@ -9,7 +9,7 @@ import { Database } from "./structures/Database";
 
 export default class bot extends Client<true> {
     constructor() {
-	super({ intents: 33409, allowedMentions: { repliedUser: false }, shards: "auto", partials: [Partials.Message, Partials.User, Partials.GuildMember] });
+	super({ intents: 33409, allowedMentions: { repliedUser: false }, shards: "auto", partials: [Partials.Message, Partials.User] });
     }
 
     public commands: Collection<string, Command> = new Collection();
