@@ -21,7 +21,6 @@ export default class bot extends Client<true> {
 	savePreviousSongs: false,
 	searchSongs: 5,
 	youtubeCookie: process.env.YOUTUBE_COOKIE,
-	nsfw: true,
 	emitAddSongWhenCreatingQueue: false,
 	emitAddListWhenCreatingQueue: false,
 	plugins: [new SpotifyPlugin(), new SoundCloudPlugin()]
