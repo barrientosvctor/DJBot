@@ -35,19 +35,19 @@ export class Command {
     public run: CommandOptions["run"];
 
     constructor(options: CommandOptions) {
-	this.name = options.name;
-	this.description = options.description;
-	this.usage = options.usage;
-	this.cooldown = options.cooldown;
-	this.aliases = options.aliases;
-	this.enabled = options.enabled;
-	this.ownerOnly = options.ownerOnly;
-	this.channelOnly = options.channelOnly;
-	this.sameChannel = options.sameChannel;
-	this.checkQueue = options.checkQueue;
-	this.djOnly = options.djOnly;
-	this.memberPerms = options.memberPerms;
-	this.botPerms = options.botPerms;
-	this.run = options.run;
+        this.name = options.name;
+        this.description = options.description;
+        this.usage = options.usage;
+        this.cooldown = options.cooldown;
+        this.aliases = options.aliases;
+        this.enabled = options.enabled;
+        this.ownerOnly = options.ownerOnly;
+        this.channelOnly = options.channelOnly;
+        this.sameChannel = options.sameChannel;
+        this.checkQueue = options.checkQueue;
+        this.djOnly = options.djOnly;
+        this.memberPerms = options.memberPerms;
+        this.botPerms = options.botPerms;
+        this.run = options.run;
     }
 }

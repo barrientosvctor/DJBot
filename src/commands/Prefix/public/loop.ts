@@ -12,16 +12,16 @@ export default new Command({
     checkQueue: true,
     djOnly: true,
     run(bot, msg) {
-	try {
-	    const queue: Queue | undefined = bot.distube.getQueue(msg.guildId!);
+        try {
+            const queue: Queue | undefined = bot.distube.getQueue(msg.guildId!);
 
             if (queue?.repeatMode === 0) bot.distube.setRepeatMode(msg.guildId!, 1);
             else bot.distube.setRepeatMode(msg.guildId!, 0);
 
             return msg.reply(`${bot.getEmoji("check")} Bien, a partir de ahora la canción **${queue?.songs[0].name}** (${queue?.songs[0].formattedDuration}) ${queue?.repeatMode === 1 ? 'se repetirá' : 'no se repetirá'}.`);
-	} catch (error) {
-	    console.error(error);
-	    bot.hook.send({ embeds: [new EmbedBuilder().setColor('NotQuiteBlack').setTitle(`Error en ${this.name}`).setDescription(`${error}`)] });
-	}
+        } catch (error) {
+            console.error(error);
+            bot.hook.send({ embeds: [new EmbedBuilder().setColor('NotQuiteBlack').setTitle(`Error en ${this.name}`).setDescription(`${error}`)] });
+        }
     }
 });

@@ -10,9 +10,9 @@ export default new Interaction()
 .setDJOnly(true)
 .setCallback(async ({ bot, int }) => {
     try {
-	if (bot.distube.getQueue(int.guildId)?.playing) return int.editReply(`La canción **${bot.distube.getQueue(int.guildId)?.songs[0].name}** (${bot.distube.getQueue(int.guildId)?.songs[0].formattedDuration}) ya estaba sonando desde antes.`);
-	bot.distube.getQueue(int.guildId)?.resume();
-	return int.editReply(`Bien! La canción **${bot.distube.getQueue(int.guildId)?.songs[0].name}** (${bot.distube.getQueue(int.guildId)?.songs[0].formattedDuration}) ha vuelto a sonar.`)
+        if (bot.distube.getQueue(int.guildId)?.playing) return int.editReply(`La canción **${bot.distube.getQueue(int.guildId)?.songs[0].name}** (${bot.distube.getQueue(int.guildId)?.songs[0].formattedDuration}) ya estaba sonando desde antes.`);
+        bot.distube.getQueue(int.guildId)?.resume();
+        return int.editReply(`Bien! La canción **${bot.distube.getQueue(int.guildId)?.songs[0].name}** (${bot.distube.getQueue(int.guildId)?.songs[0].formattedDuration}) ha vuelto a sonar.`)
     } catch (error) {
         console.error(error);
     }

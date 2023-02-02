@@ -2,7 +2,7 @@
     "guild": {
         "roles": {
             "permissions": {
-		"CreateInstantInvite": "Crear invitación",
+                "CreateInstantInvite": "Crear invitación",
                 "KickMembers": "Expulsar miembros",
                 "BanMembers": "Banear miembros",
                 "Administrator": "Administrador",
@@ -44,6 +44,6 @@
                 "UseEmbeddedActivities": "Usar actividades insertadas",
                 "ModerateMembers": "Moderar miembros"
             }
-	}
+        }
     }
 }

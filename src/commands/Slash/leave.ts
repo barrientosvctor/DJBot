@@ -9,9 +9,9 @@ export default new Interaction()
 .setDJOnly(true)
 .setCallback(async ({ bot, int }) => {
     try {
-	if (!int.guild.members.me?.voice.channel) return int.editReply(`${bot.getEmoji("error")} No estoy unido a ningún canal de voz.`);
-	bot.distube.voices.get(int)?.leave();
-	return int.editReply(`Me he salido del canal de voz.`);
+        if (!int.guild.members.me?.voice.channel) return int.editReply(`${bot.getEmoji("error")} No estoy unido a ningún canal de voz.`);
+        bot.distube.voices.get(int)?.leave();
+        return int.editReply(`Me he salido del canal de voz.`);
     } catch (error) {
         console.error(error);
     }

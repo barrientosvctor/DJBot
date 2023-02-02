@@ -10,12 +10,12 @@ export default new Command({
     channelOnly: true,
     sameChannel: true,
     run(bot, msg) {
-	try {
-	    if (!msg.guild?.members.me?.voice.channel) return msg.channel.send(`${bot.getEmoji("error")} No estoy unido a ningún canal de voz.`);
-	    bot.distube.voices.get(msg)?.leave();
-	} catch (error) {
-	    console.error(error);
-	    bot.hook.send({ embeds: [new EmbedBuilder().setColor('NotQuiteBlack').setTitle(`Error en ${this.name}`).setDescription(`${error}`)] });
-	}
+        try {
+            if (!msg.guild?.members.me?.voice.channel) return msg.channel.send(`${bot.getEmoji("error")} No estoy unido a ningún canal de voz.`);
+            bot.distube.voices.get(msg)?.leave();
+        } catch (error) {
+            console.error(error);
+            bot.hook.send({ embeds: [new EmbedBuilder().setColor('NotQuiteBlack').setTitle(`Error en ${this.name}`).setDescription(`${error}`)] });
+        }
     }
 });

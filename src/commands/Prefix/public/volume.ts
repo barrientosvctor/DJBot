@@ -13,8 +13,8 @@ export default new Command({
     checkQueue: true,
     djOnly: true,
     run(bot, msg, args) {
-	try {
-	    if (!args![1]) return msg.reply(`${bot.getEmoji("noargs")} Escribe el porcentaje de volumen para cambiarlo.`);
+        try {
+            if (!args![1]) return msg.reply(`${bot.getEmoji("noargs")} Escribe el porcentaje de volumen para cambiarlo.`);
 
             if (isNaN(parseInt(args![1]))) return msg.reply(`El argumento **${args![1]}** debe ser un número.`);
 
@@ -22,9 +22,9 @@ export default new Command({
 
             bot.distube.setVolume(msg, parseInt(args![1]));
             return msg.reply(`${bot.getEmoji("check")} El volumen ha cambiado a **${args![1]}%**`);
-	} catch (error) {
-	    console.error(error);
-	    bot.hook.send({ embeds: [new EmbedBuilder().setColor('NotQuiteBlack').setTitle(`Error en ${this.name}`).setDescription(`${error}`)] });
-	}
+        } catch (error) {
+            console.error(error);
+            bot.hook.send({ embeds: [new EmbedBuilder().setColor('NotQuiteBlack').setTitle(`Error en ${this.name}`).setDescription(`${error}`)] });
+        }
     }
 });

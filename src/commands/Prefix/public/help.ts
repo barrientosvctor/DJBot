@@ -10,8 +10,8 @@ export default new Command({
     aliases: ["h"],
     enabled: true,
     run(bot, msg, args, prefix) {
-	try {
-	    if (!args![1]) {
+        try {
+            if (!args![1]) {
                 let list: string[] = [];
                 for (const command of bot.commands.values()) {
                     if (command.ownerOnly) continue;
@@ -26,9 +26,9 @@ export default new Command({
 
                 return msg.reply({ embeds: [new DJBotEmbed(msg.author, msg.guild!, {}).setTitle(`Información del comando \`${command.name}\``).addFields({ name: "~ Nombre", value: command.name }, { name: "~ Descripción", value: command.description }, { name: "~ Uso", value: command.usage ? `${prefix}${command.name} ${command.usage}` : `${prefix}${command.name}` }, { name: "~ Habilitado (global)", value: command.enabled ? "Sí" : "No" }, { name: "~ ¿Requiere rol DJ?", value: command.djOnly ? "Sí" : "No" })] });
             }
-	} catch (error) {
-	    console.error(error);
-	    bot.hook.send({ embeds: [new EmbedBuilder().setColor('NotQuiteBlack').setTitle(`Error en ${this.name}`).setDescription(`${error}`)] });
-	}
+        } catch (error) {
+            console.error(error);
+            bot.hook.send({ embeds: [new EmbedBuilder().setColor('NotQuiteBlack').setTitle(`Error en ${this.name}`).setDescription(`${error}`)] });
+        }
     }
 });

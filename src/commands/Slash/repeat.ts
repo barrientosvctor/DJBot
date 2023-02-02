@@ -10,8 +10,8 @@ export default new Interaction()
 .setDJOnly(true)
 .setCallback(async ({ bot, int }) => {
     try {
-	bot.distube.getQueue(int.guildId)?.seek(0);
-	return int.editReply(`${bot.getEmoji("check")} Bien! La canción **${bot.distube.getQueue(int.guildId)?.songs[0].name}** (${bot.distube.getQueue(int.guildId)?.songs[0].formattedDuration}) se ha repetido.`)
+        bot.distube.getQueue(int.guildId)?.seek(0);
+        return int.editReply(`${bot.getEmoji("check")} Bien! La canción **${bot.distube.getQueue(int.guildId)?.songs[0].name}** (${bot.distube.getQueue(int.guildId)?.songs[0].formattedDuration}) se ha repetido.`)
     } catch (error) {
         console.error(error);
     }

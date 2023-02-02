@@ -11,8 +11,8 @@ export default new Command({
     enabled: true,
     memberPerms: ["ManageGuild"],
     run(bot, msg, args, prefix) {
-	try {
-	    if (!args![1]) return msg.reply(`${bot.getEmoji("noargs")} Escribe el nuevo prefix que tendré en el servidor.`);
+        try {
+            if (!args![1]) return msg.reply(`${bot.getEmoji("noargs")} Escribe el nuevo prefix que tendré en el servidor.`);
             if (args![1].length > 4) return msg.reply(`${bot.getEmoji("check")} El prefix no puede sobrepasar de 4 carácteres.`);
 
             const database: Database = new Database("./src/databases/prefix.json");
@@ -27,9 +27,9 @@ export default new Command({
                 database.set(msg.guildId!, args![1]);
                 return msg.reply(`${bot.getEmoji("check")} Bien, mi prefix ha sido establecido a **${args![1]}**`);
             }
-	} catch (error) {
-	    console.error(error);
-	    bot.hook.send({ embeds: [new EmbedBuilder().setColor('NotQuiteBlack').setTitle(`Error en ${this.name}`).setDescription(`${error}`)] });
-	}
+        } catch (error) {
+            console.error(error);
+            bot.hook.send({ embeds: [new EmbedBuilder().setColor('NotQuiteBlack').setTitle(`Error en ${this.name}`).setDescription(`${error}`)] });
+        }
     }
 });

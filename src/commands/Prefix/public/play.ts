@@ -13,13 +13,13 @@ export default new Command({
     djOnly: true,
     botPerms: ["Connect", "Speak", "UseVAD"],
     run(bot, msg, args) {
-	try {
-	    if (!args![1]) return msg.channel.send(`${bot.getEmoji("noargs")} Escribe el nombre o la URL de la canción que quieras escuchar.`);
+        try {
+            if (!args![1]) return msg.channel.send(`${bot.getEmoji("noargs")} Escribe el nombre o la URL de la canción que quieras escuchar.`);
             bot.distube.play(msg.member?.voice.channel!, args!.slice(1).join(" "), { textChannel: msg.channel as GuildTextBasedChannel, member: msg.member! });
-	    return msg.reply(`${bot.getEmoji("search")} Buscando \`${args!.slice(1).join(" ")}\``);
-	} catch (error) {
-	    console.error(error);
-	    bot.hook.send({ embeds: [new EmbedBuilder().setColor('NotQuiteBlack').setTitle(`Error en ${this.name}`).setDescription(`${error}`)] });
-	}
+            return msg.reply(`${bot.getEmoji("search")} Buscando \`${args!.slice(1).join(" ")}\``);
+        } catch (error) {
+            console.error(error);
+            bot.hook.send({ embeds: [new EmbedBuilder().setColor('NotQuiteBlack').setTitle(`Error en ${this.name}`).setDescription(`${error}`)] });
+        }
     }
 });

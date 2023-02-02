@@ -9,16 +9,16 @@ export default new Interaction()
 .setEnabledCommand(true)
 .setCallback(async ({ bot, int }) => {
     try {
-	const data = await axios.get(`https://api.popcat.xyz/lyrics?song=${int.options.getString("canción")?.replace(" ", "+")}`, { method: "get" }).then(res => res.data);
-	    
-	if (data.error) return int.editReply(`${bot.getEmoji("error")} No se encontraron resultados con esta canción.`);
+        const data = await axios.get(`https://api.popcat.xyz/lyrics?song=${int.options.getString("canción")?.replace(" ", "+")}`, { method: "get" }).then(res => res.data);
 
-	const embed: DJBotEmbed = new DJBotEmbed(int.user, int.guild, {})
-	.setThumbnail(data.image || null)
+            if (data.error) return int.editReply(`${bot.getEmoji("error")} No se encontraron resultados con esta canción.`);
+
+        const embed: DJBotEmbed = new DJBotEmbed(int.user, int.guild, {})
+        .setThumbnail(data.image || null)
         .setTitle(`${data.title} - ${data.artist}` || "Desconocido")
         .setDescription(data.lyrics || "Letra no disponible.");
 
-	return int.editReply({ embeds: [embed] });
+        return int.editReply({ embeds: [embed] });
     } catch (error) {
         console.error(error);
     }

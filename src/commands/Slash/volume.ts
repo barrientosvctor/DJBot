@@ -11,9 +11,9 @@ export default new Interaction()
 .setDJOnly(true)
 .setCallback(async ({ bot, int }) => {
     try {
-	if (int.options.getInteger("volumen")! < 0 || int.options.getInteger("volumen")! > 100) return int.editReply(`${bot.getEmoji("error")} El volumen no puede ser menor a *0* o mayor a *100*`);
-	bot.distube.setVolume(int, int.options.getInteger("volumen")!);
-	return int.editReply(`${bot.getEmoji("check")} El volumen cambió a **${int.options.getInteger("volumen")}%**`);
+        if (int.options.getInteger("volumen")! < 0 || int.options.getInteger("volumen")! > 100) return int.editReply(`${bot.getEmoji("error")} El volumen no puede ser menor a *0* o mayor a *100*`);
+        bot.distube.setVolume(int, int.options.getInteger("volumen")!);
+        return int.editReply(`${bot.getEmoji("check")} El volumen cambió a **${int.options.getInteger("volumen")}%**`);
     } catch (error) {
         console.error(error);
     }

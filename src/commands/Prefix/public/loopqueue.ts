@@ -13,16 +13,16 @@ export default new Command({
     checkQueue: true,
     djOnly: true,
     run(bot, msg) {
-	try {
-	    const queue: Queue | undefined = bot.distube.getQueue(msg.guildId!);
+        try {
+            const queue: Queue | undefined = bot.distube.getQueue(msg.guildId!);
 
             if (queue?.repeatMode === 2) bot.distube.setRepeatMode(msg, 0);
             else bot.distube.setRepeatMode(msg, 2);
 
             return msg.reply(`${bot.getEmoji("check")} Bien, la repetición de la lista ha sido ${queue?.repeatMode === 2 ? 'activado' : 'desactivado'}.`);
-	} catch (error) {
-	    console.error(error);
-	    bot.hook.send({ embeds: [new EmbedBuilder().setColor('NotQuiteBlack').setTitle(`Error en ${this.name}`).setDescription(`${error}`)] });
-	}
+        } catch (error) {
+            console.error(error);
+            bot.hook.send({ embeds: [new EmbedBuilder().setColor('NotQuiteBlack').setTitle(`Error en ${this.name}`).setDescription(`${error}`)] });
+        }
     }
 });

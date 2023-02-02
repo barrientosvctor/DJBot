@@ -11,8 +11,8 @@ export default new Interaction()
 .setDJOnly(true)
 .setCallback(async ({ bot, int }) => {
     try {
-	bot.distube.play(int.member.voice.channel!, int.options.getString("canción")!, { textChannel: int.channel || undefined, member: int.member });
-	return int.editReply(`${bot.getEmoji("search")} Buscando \`${int.options.getString("canción")}\``);
+        bot.distube.play(int.member.voice.channel!, int.options.getString("canción")!, { textChannel: int.channel || undefined, member: int.member });
+        return int.editReply(`${bot.getEmoji("search")} Buscando \`${int.options.getString("canción")}\``);
     } catch (error) {
         console.error(error);
     }

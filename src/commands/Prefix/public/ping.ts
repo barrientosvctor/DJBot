@@ -8,11 +8,11 @@ export default new Command({
     aliases: ["pi"],
     enabled: true,
     run(bot, msg) {
-	try {
-	    return msg.reply(`Pong! ${bot.ws.ping}ms`);
-	} catch (error) {
-	    console.error(error);
-	    bot.hook.send({ embeds: [new EmbedBuilder().setColor('NotQuiteBlack').setTitle(`Error en ${this.name}`).setDescription(`${error}`)] });
-	}
+        try {
+            return msg.reply(`Pong! ${bot.ws.ping}ms`);
+        } catch (error) {
+            console.error(error);
+            bot.hook.send({ embeds: [new EmbedBuilder().setColor('NotQuiteBlack').setTitle(`Error en ${this.name}`).setDescription(`${error}`)] });
+        }
     }
 });

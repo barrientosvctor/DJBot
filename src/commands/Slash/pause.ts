@@ -10,9 +10,9 @@ export default new Interaction()
 .setDJOnly(true)
 .setCallback(async ({ bot, int }) => {
     try {
-	if (bot.distube.getQueue(int.guildId)?.paused) return int.editReply(`${bot.getEmoji("error")} La canción ya estaba pausada anteriormente, para continuar la canción usa el comando /resume`);
-	bot.distube.getQueue(int.guildId)?.pause();
-	return int.editReply(`La canción **${bot.distube.getQueue(int.guildId)?.songs[0].name}** ha sido pausada. Para continuarla usa el comando /resume`);
+        if (bot.distube.getQueue(int.guildId)?.paused) return int.editReply(`${bot.getEmoji("error")} La canción ya estaba pausada anteriormente, para continuar la canción usa el comando /resume`);
+        bot.distube.getQueue(int.guildId)?.pause();
+        return int.editReply(`La canción **${bot.distube.getQueue(int.guildId)?.songs[0].name}** ha sido pausada. Para continuarla usa el comando /resume`);
     } catch (error) {
         console.error(error);
     }

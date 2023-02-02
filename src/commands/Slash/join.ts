@@ -11,19 +11,19 @@ export default new Interaction()
 .setDJOnly(true)
 .setCallback(async ({ bot, int }) => {
     try {
-	const botVoice: VoiceBasedChannel | null | undefined = int.guild.members.me?.voice.channel;
-	const memberVoice: VoiceBasedChannel | null | undefined  = int.member.voice.channel;
+        const botVoice: VoiceBasedChannel | null | undefined = int.guild.members.me?.voice.channel;
+        const memberVoice: VoiceBasedChannel | null | undefined  = int.member.voice.channel;
 
-	if (botVoice) {
-	    if (botVoice === memberVoice) return int.editReply(`Ya estaba unido al canal de voz.`);
-	} else if (memberVoice) {
-	    bot.distube.voices.join(memberVoice).then(() => {
-		return int.editReply(`${bot.getEmoji("check")} Me he unido al canal de voz *#${memberVoice.name}*`)
-	    }).catch(err => {
-		int.editReply(`Ocurrió un error al intentar entrar al canal de voz.`);
-		console.error(err);
-	    });
-	}
+        if (botVoice) {
+            if (botVoice === memberVoice) return int.editReply(`Ya estaba unido al canal de voz.`);
+        } else if (memberVoice) {
+            bot.distube.voices.join(memberVoice).then(() => {
+                return int.editReply(`${bot.getEmoji("check")} Me he unido al canal de voz *#${memberVoice.name}*`)
+            }).catch(err => {
+                int.editReply(`Ocurrió un error al intentar entrar al canal de voz.`);
+                console.error(err);
+            });
+        }
     } catch (error) {
         console.error(error);
     }

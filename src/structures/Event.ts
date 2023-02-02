@@ -13,8 +13,8 @@ export class Event {
     public run: EventOptions["run"];
 
     constructor(options: EventOptions) {
-	this.name = options.name;
-	this.once = options.once;
-	this.run = options.run;
+        this.name = options.name;
+        this.once = options.once;
+        this.run = options.run;
     }
 }

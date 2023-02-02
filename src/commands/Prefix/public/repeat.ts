@@ -12,12 +12,12 @@ export default new Command({
     checkQueue: true,
     djOnly: true,
     run(bot, msg) {
-	try {
-	    bot.distube.getQueue(msg.guildId!)?.seek(0);
-	    return msg.reply(`${bot.getEmoji("check")} Bien, la canción **${bot.distube.getQueue(msg.guildId!)?.songs[0].name}** se ha repetido.`);
-	} catch (error) {
-	    console.error(error);
-	    bot.hook.send({ embeds: [new EmbedBuilder().setColor('NotQuiteBlack').setTitle(`Error en ${this.name}`).setDescription(`${error}`)] });
-	}
+        try {
+            bot.distube.getQueue(msg.guildId!)?.seek(0);
+            return msg.reply(`${bot.getEmoji("check")} Bien, la canción **${bot.distube.getQueue(msg.guildId!)?.songs[0].name}** se ha repetido.`);
+        } catch (error) {
+            console.error(error);
+            bot.hook.send({ embeds: [new EmbedBuilder().setColor('NotQuiteBlack').setTitle(`Error en ${this.name}`).setDescription(`${error}`)] });
+        }
     }
 });

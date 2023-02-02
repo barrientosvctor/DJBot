@@ -12,12 +12,12 @@ export default new Interaction()
 .setDJOnly(true)
 .setCallback(async ({ bot, int }) => {
     try {
-	const queue: Queue | undefined = bot.distube.getQueue(int.guildId);
-	if (queue?.songs[0].isLive) return int.editReply(`${bot.getEmoji("error")} No puedo adelantar o atrasar streams.`);
-	if (int.options.getInteger("número")! > queue!.songs[0].duration) return int.editReply(`${bot.getEmoji("error")} No puedo adelantar la canción a más de ${queue?.songs[0].duration} segundos.`)
+        const queue: Queue | undefined = bot.distube.getQueue(int.guildId);
+        if (queue?.songs[0].isLive) return int.editReply(`${bot.getEmoji("error")} No puedo adelantar o atrasar streams.`);
+        if (int.options.getInteger("número")! > queue!.songs[0].duration) return int.editReply(`${bot.getEmoji("error")} No puedo adelantar la canción a más de ${queue?.songs[0].duration} segundos.`)
 
-	bot.distube.seek(int, int.options.getInteger("número") as number);
-	return int.editReply(`Ahora la canción **${queue?.songs[0].name}** sonará desde el *segundo ${int.options.getInteger("número")}*`);
+        bot.distube.seek(int, int.options.getInteger("número") as number);
+        return int.editReply(`Ahora la canción **${queue?.songs[0].name}** sonará desde el *segundo ${int.options.getInteger("número")}*`);
     } catch (error) {
         console.error(error);
     }

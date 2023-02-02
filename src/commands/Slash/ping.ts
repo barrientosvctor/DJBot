@@ -6,7 +6,7 @@ export default new Interaction()
 .setEnabledCommand(true)
 .setCallback(async ({ bot, int }) => {
     try {
-	return int.editReply(`${bot.getEmoji("check")} Pong! ${bot.ws.ping}ms`);
+        return int.editReply(`${bot.getEmoji("check")} Pong! ${bot.ws.ping}ms`);
     } catch (error) {
         console.error(error);
     }
