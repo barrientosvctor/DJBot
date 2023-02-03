@@ -46,22 +46,12 @@ export default class bot extends Client<true> {
 
     public checkBlacklist(user: User): boolean {
         const blacklistDB: Database = new Database("./src/databases/blacklist.json");
-        if (blacklistDB.has(user.id)) {
-            return true;
-        } else {
-            return false;
-        }
+        return (blacklistDB.has(user.id)) ? true : false;
     }
 
-    public async checkDJ(guild: Guild, member: GuildMember) {
+    public async checkDJ(guild: Guild, member: GuildMember): Promise<boolean> {
         const djDB: Database = new Database("./src/databases/djrole.json");
-        if (djDB.has(guild.id)) {
-            if (member.roles.cache.has(await djDB.get(guild.id))) {
-                return true;
-            } else {
-                return false;
-            }
-        }
+        return ((djDB.has(guild.id)) && (member.roles.cache.has(await djDB.get(guild.id)))) ? true : false;
     }
 
     public getEmoji(emojiType: string): string | string[] | undefined {
